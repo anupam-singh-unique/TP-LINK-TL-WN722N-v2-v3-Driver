@@ -46,3 +46,25 @@ if you have a any issue then contact to driver expert
 Mr. Anupam Singh (Unique) WhatsApp:- +91 8409420016
 
 THANK YOU...
+
+
+
+//////////////////////// Kali linux 2023.2a /////////////////////////
+
+This version of linux requires much less effort in terms of downloading 
+the drivers required by the wifi adapter to enter monitor mode. This process 
+can be completed in 3 steps:
+
+STEP 1: (Downloading the required drivers)
+sudo apt update 
+sudo apt upgrade
+sudo apt install -y realtek-rtl8188eus-dkms 
+sudo shutdown -r now  (reboot after installation)
+
+STEP 2: (Switch adapter to monitor mode)
+sudo ifconfig wlan0 down
+sudo iwconfig wlan0 mode monitor
+sudo ifconfig wlan0 up
+
+STEP 3: (Testing the adapter)
+sudo aireplay-ng --test wlan0
